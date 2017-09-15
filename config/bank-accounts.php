@@ -3,7 +3,7 @@ return [
     'kcb' => [
         'title' => 'KCB',
         'bank' => 'KCB',
-        'name' => 'PT Reselia',
+        'name' => 'Kenya Commercial Bank',
         'number' => '45454545'
     ],
     'cba' => [
