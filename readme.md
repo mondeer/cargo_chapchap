@@ -14,23 +14,12 @@ Example Laravel 5.4 Online Shop
 
 ## Whats Next?
 
-* Sign up dengan facebook
-* Fitur wishlist
-* Fitur stock
-* Otomatis pembatalan order jika tidak ada konfirmasi setelah 24 jam
-* Custom order number
-* Halaman crud alamat untuk customer (dari dashboard customer)
-* Buat alamat default ketika checkout
-* Fitur dropship
-* Form untuk langsung buat akun dengan menulis password untuk guest checkout
-* Notifikasi (email) admin setiap kali ada order baru
-* Notifikasi (email) customer setiap status order berubah
-* Konfirmasi tranfer + optional upload bukti transfer
-* Mekanisme perubah status yang lebih kompleks
-* Laporan penjualan terkini
-* Laporan statistik user terkini
-* Resize foto produk ketika upload
-* Dll
+* Change Database in .env
+* run composer update
+* create your database pale phpmyadmin(Mysql)
+* run php artisan serve
+* php artisan db::seed
+* 
 
-## Thanks
-Thanks to **[Rahmat Awaludin](https://github.com/rawaludin/)**
+## DEVELOPER
+iMond Solutions
