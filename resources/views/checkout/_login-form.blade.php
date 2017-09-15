@@ -8,13 +8,13 @@
       </div>
     </div>
 
-    <div class="form-group {!! $errors->has('is_guest') ? 'has-error' : '' !!}">
+    <!-- <div class="form-group {!! $errors->has('is_guest') ? 'has-error' : '' !!}">
       <div class="col-md-6 col-md-offset-4 radio">
         <p><label>{{ Form::radio('is_guest', 1, true) }} Guest</label></p>
         <p><label>{{ Form::radio('is_guest', 0) }} Not a Guest</label></p>
         {!! $errors->first('is_guest', '<p class="help-block">:message</p>') !!}
       </div>
-    </div>
+    </div> -->
 
     <div class="form-group {!! $errors->has('checkout_password') ? 'has-error' : '' !!}">
       {!! Form::label('checkout_password', 'Password', ['class' => 'col-md-4 control-label']) !!}

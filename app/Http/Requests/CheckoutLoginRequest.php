@@ -16,7 +16,6 @@ class CheckoutLoginRequest extends FormRequest
      {
          return [
              'email'             => 'required|email',
-             'is_guest'          => 'required|in:0,1',
              'checkout_password' => 'required_if:is_guest,0',
          ];
      }
@@ -24,7 +23,7 @@ class CheckoutLoginRequest extends FormRequest
      public function messages()
      {
          return [
-             'email.required'                => 'Email required',
+             'email.required'                => 'Login Required',
              'checkout_password.required_if' => 'Password Required',
          ];
      }
