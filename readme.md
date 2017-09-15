@@ -1,6 +1,6 @@
-# Laravel Online Shop
+# ChapChap Cargo {Laravel 5.4}
 
-Example Laravel 5.4 Online Shop
+An online shop for kenyans and east africans
 
 ## Built With
 
@@ -19,7 +19,7 @@ Example Laravel 5.4 Online Shop
 * create your database pale phpmyadmin(Mysql)
 * run php artisan serve
 * php artisan db::seed
-* 
+*
 
 ## DEVELOPER
 iMond Solutions
