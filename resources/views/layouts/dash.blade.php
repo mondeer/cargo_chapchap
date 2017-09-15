@@ -27,6 +27,10 @@
   <link rel="stylesheet" href="{{ asset ('dash/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ asset ('dash/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ mix('assets/css/app.css') }}">
+  <link rel="stylesheet" href="{{ mix('assets/css/libs.css') }}">
+
 
 </head>
 <body class="hold-transition skin-red sidebar-mini">
@@ -211,6 +215,10 @@
     <script src="{{ asset ('dash/dist/js/pages/dashboard.js')}}"></script>
     <!-- iMond for demo purposes -->
     <script src="{{ asset ('dash/dist/js/demo.js')}}"></script>
+    <script src="{{ mix('assets/js/app.js') }}"></script>
+    <script src="{{ mix('assets/js/all.js') }}"></script>
+    <script src="{{ mix('assets/js/libs.js') }}"></script>
+    <script src="{{ mix('assets/js/custom.js') }}"></script>
     <!-- DataTables -->
     <script src="{{ asset ('dash/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{ asset ('dash/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
