@@ -1,0 +1,146 @@
+.form-bg{
+    background-image: url("bg.jpg");
+    background-size: cover;
+    position: relative;
+}
+.imondred {
+    background: rgba(221,75,57, 1);
+    color: #fff;
+}
+
+.imondwhite {
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.imondround {
+  border-radius: 30%;
+  background-color: #293A4A;
+}
+
+.demo
+{
+	padding: 100px 0;
+}
+.heading-title
+{
+	margin-bottom: 100px;
+  color: #fff;
+}
+.form-bg:before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(23, 34, 45, 0.5);
+    /*opacity: 0.95;*/
+}
+
+.imond {
+  color: #fff;
+}
+
+form{
+    margin: 5% 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.heading{
+    font-size: 35px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: -20px;
+}
+/*
+form .form-group{
+    padding: 30px;
+    border-radius: 5px;
+    background: rgba(48,90,100, 0.6);
+    box-shadow: 0 0 3px #bcb4b4;
+    position: relative;
+}
+
+form .control-label{
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+form .form-control{
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #8f8597;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+form .btn{
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    background: #00d3bf;
+    text-transform: uppercase;
+    box-shadow: 0 0 8px 0 #a2a2a2;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 60px 12px 15px;
+    position: absolute;
+    bottom: -6%;
+    right: -4%;
+    transition: all 0.2s ease 0s;
+}
+
+form .btn:hover{
+    background: #fff;
+    color: #00d3bf;
+}
+
+form .btn .fa{
+    font-size: 38px;
+    position: absolute;
+    top: 5px;
+    right: 7px;
+}
+
+form .form-footer{
+    font-size: 14px;
+    color: #fff;
+    text-transform: capitalize;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+form .form-footer a{
+    font-size: 14px;
+    color: #fff;
+}
+
+form .form-footer a:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 990px){
+    form .heading{ margin-left: 0; }
+    form .btn{ right: -10px; }
+    form .btn .fa{
+        top: 7px;
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    form .heading{
+        font-size: 22px;
+    }
+    form .btn{ padding: 7px 37px 6px 15px; }
+    form .btn .fa{ font-size: 24px; }
+}@charset "utf-8";
+/* CSS Document */*/
