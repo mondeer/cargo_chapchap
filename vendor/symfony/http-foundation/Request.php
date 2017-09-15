@@ -12,7 +12,6 @@
 namespace Symfony\Component\HttpFoundation;
 
 use Symfony\Component\HttpFoundation\Exception\ConflictingHeadersException;
-use Symfony\Component\HttpFoundation\Exception\SuspiciousOperationException;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
@@ -30,22 +29,11 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
  */
 class Request
 {
-    const HEADER_FORWARDED = 0b00001; // When using RFC 7239
-    const HEADER_X_FORWARDED_FOR = 0b00010;
-    const HEADER_X_FORWARDED_HOST = 0b00100;
-    const HEADER_X_FORWARDED_PROTO = 0b01000;
-    const HEADER_X_FORWARDED_PORT = 0b10000;
-    const HEADER_X_FORWARDED_ALL = 0b11110; // All "X-Forwarded-*" headers
-    const HEADER_X_FORWARDED_AWS_ELB = 0b11010; // AWS ELB doesn't send X-Forwarded-Host
-
-    /** @deprecated since version 3.3, to be removed in 4.0 */
-    const HEADER_CLIENT_IP = self::HEADER_X_FORWARDED_FOR;
-    /** @deprecated since version 3.3, to be removed in 4.0 */
-    const HEADER_CLIENT_HOST = self::HEADER_X_FORWARDED_HOST;
-    /** @deprecated since version 3.3, to be removed in 4.0 */
-    const HEADER_CLIENT_PROTO = self::HEADER_X_FORWARDED_PROTO;
-    /** @deprecated since version 3.3, to be removed in 4.0 */
-    const HEADER_CLIENT_PORT = self::HEADER_X_FORWARDED_PORT;
+    const HEADER_FORWARDED = 'forwarded';
+    const HEADER_CLIENT_IP = 'client_ip';
+    const HEADER_CLIENT_HOST = 'client_host';
+    const HEADER_CLIENT_PROTO = 'client_proto';
+    const HEADER_CLIENT_PORT = 'client_port';
 
     const METHOD_HEAD = 'HEAD';
     const METHOD_GET = 'GET';
@@ -81,8 +69,6 @@ class Request
      *
      * The other headers are non-standard, but widely used
      * by popular reverse proxies (like Apache mod_proxy or Amazon EC2).
-     *
-     * @deprecated since version 3.3, to be removed in 4.0
      */
     protected static $trustedHeaders = array(
         self::HEADER_FORWARDED => 'FORWARDED',
@@ -220,26 +206,13 @@ class Request
 
     protected static $requestFactory;
 
-    private $isHostValid = true;
-    private $isClientIpsValid = true;
     private $isForwardedValid = true;
 
-    private static $trustedHeaderSet = -1;
-
-    /** @deprecated since version 3.3, to be removed in 4.0 */
-    private static $trustedHeaderNames = array(
-        self::HEADER_FORWARDED => 'FORWARDED',
-        self::HEADER_CLIENT_IP => 'X_FORWARDED_FOR',
-        self::HEADER_CLIENT_HOST => 'X_FORWARDED_HOST',
-        self::HEADER_CLIENT_PROTO => 'X_FORWARDED_PROTO',
-        self::HEADER_CLIENT_PORT => 'X_FORWARDED_PORT',
-    );
-
     private static $forwardedParams = array(
-        self::HEADER_X_FORWARDED_FOR => 'for',
-        self::HEADER_X_FORWARDED_HOST => 'host',
-        self::HEADER_X_FORWARDED_PROTO => 'proto',
-        self::HEADER_X_FORWARDED_PORT => 'host',
+        self::HEADER_CLIENT_IP => 'for',
+        self::HEADER_CLIENT_HOST => 'host',
+        self::HEADER_CLIENT_PROTO => 'proto',
+        self::HEADER_CLIENT_PORT => 'host',
     );
 
     /**
@@ -580,26 +553,11 @@ class Request
      *
      * You should only list the reverse proxies that you manage directly.
      *
-     * @param array $proxies          A list of trusted proxies
-     * @param int   $trustedHeaderSet A bit field of Request::HEADER_*, to set which headers to trust from your proxies
-     *
-     * @throws \InvalidArgumentException When $trustedHeaderSet is invalid
+     * @param array $proxies A list of trusted proxies
      */
-    public static function setTrustedProxies(array $proxies/*, int $trustedHeaderSet*/)
+    public static function setTrustedProxies(array $proxies)
     {
         self::$trustedProxies = $proxies;
-
-        if (2 > func_num_args()) {
-            @trigger_error(sprintf('The %s() method expects a bit field of Request::HEADER_* as second argument since version 3.3. Defining it will be required in 4.0. ', __METHOD__), E_USER_DEPRECATED);
-
-            return;
-        }
-        $trustedHeaderSet = (int) func_get_arg(1);
-
-        foreach (self::$trustedHeaderNames as $header => $name) {
-            self::$trustedHeaders[$header] = $header & $trustedHeaderSet ? $name : null;
-        }
-        self::$trustedHeaderSet = $trustedHeaderSet;
     }
 
     /**
@@ -610,16 +568,6 @@ class Request
     public static function getTrustedProxies()
     {
         return self::$trustedProxies;
-    }
-
-    /**
-     * Gets the set of trusted headers from trusted proxies.
-     *
-     * @return int A bit field of Request::HEADER_* that defines which headers are trusted from your proxies
-     */
-    public static function getTrustedHeaderSet()
-    {
-        return self::$trustedHeaderSet;
     }
 
     /**
@@ -665,35 +613,14 @@ class Request
      * @param string $value The header name
      *
      * @throws \InvalidArgumentException
-     *
-     * @deprecated since version 3.3, to be removed in 4.0. Use the $trustedHeaderSet argument of the Request::setTrustedProxies() method instead.
      */
     public static function setTrustedHeaderName($key, $value)
     {
-        @trigger_error(sprintf('The "%s()" method is deprecated since version 3.3 and will be removed in 4.0. Use the $trustedHeaderSet argument of the Request::setTrustedProxies() method instead.', __METHOD__), E_USER_DEPRECATED);
-
-        if ('forwarded' === $key) {
-            $key = self::HEADER_FORWARDED;
-        } elseif ('client_ip' === $key) {
-            $key = self::HEADER_CLIENT_IP;
-        } elseif ('client_host' === $key) {
-            $key = self::HEADER_CLIENT_HOST;
-        } elseif ('client_proto' === $key) {
-            $key = self::HEADER_CLIENT_PROTO;
-        } elseif ('client_port' === $key) {
-            $key = self::HEADER_CLIENT_PORT;
-        } elseif (!array_key_exists($key, self::$trustedHeaders)) {
+        if (!array_key_exists($key, self::$trustedHeaders)) {
             throw new \InvalidArgumentException(sprintf('Unable to set the trusted header name for key "%s".', $key));
         }
 
         self::$trustedHeaders[$key] = $value;
-
-        if (null !== $value) {
-            self::$trustedHeaderNames[$key] = $value;
-            self::$trustedHeaderSet |= $key;
-        } else {
-            self::$trustedHeaderSet &= ~$key;
-        }
     }
 
     /**
@@ -704,15 +631,9 @@ class Request
      * @return string The header name
      *
      * @throws \InvalidArgumentException
-     *
-     * @deprecated since version 3.3, to be removed in 4.0. Use the Request::getTrustedHeaderSet() method instead.
      */
     public static function getTrustedHeaderName($key)
     {
-        if (2 > func_num_args() || func_get_arg(1)) {
-            @trigger_error(sprintf('The "%s()" method is deprecated since version 3.3 and will be removed in 4.0. Use the Request::getTrustedHeaderSet() method instead.', __METHOD__), E_USER_DEPRECATED);
-        }
-
         if (!array_key_exists($key, self::$trustedHeaders)) {
             throw new \InvalidArgumentException(sprintf('Unable to get the trusted header name for key "%s".', $key));
         }
@@ -900,8 +821,8 @@ class Request
      * adding the IP address where it received the request from.
      *
      * If your reverse proxy uses a different header name than "X-Forwarded-For",
-     * ("Client-Ip" for instance), configure it via the $trustedHeaderSet
-     * argument of the Request::setTrustedProxies() method instead.
+     * ("Client-Ip" for instance), configure it via "setTrustedHeaderName()" with
+     * the "client-ip" key.
      *
      * @return string|null The client IP address
      *
@@ -1007,8 +928,7 @@ class Request
      * The "X-Forwarded-Port" header must contain the client port.
      *
      * If your reverse proxy uses a different header name than "X-Forwarded-Port",
-     * configure it via via the $trustedHeaderSet argument of the
-     * Request::setTrustedProxies() method instead.
+     * configure it via "setTrustedHeaderName()" with the "client-port" key.
      *
      * @return int|string can be a string if fetched from the server bag
      */
@@ -1225,8 +1145,8 @@ class Request
      * The "X-Forwarded-Proto" header must contain the protocol: "https" or "http".
      *
      * If your reverse proxy uses a different header name than "X-Forwarded-Proto"
-     * ("SSL_HTTPS" for instance), configure it via the $trustedHeaderSet
-     * argument of the Request::setTrustedProxies() method instead.
+     * ("SSL_HTTPS" for instance), configure it via "setTrustedHeaderName()" with
+     * the "client-proto" key.
      *
      * @return bool
      */
@@ -1250,12 +1170,11 @@ class Request
      * The "X-Forwarded-Host" header must contain the client host name.
      *
      * If your reverse proxy uses a different header name than "X-Forwarded-Host",
-     * configure it via the $trustedHeaderSet argument of the
-     * Request::setTrustedProxies() method instead.
+     * configure it via "setTrustedHeaderName()" with the "client-host" key.
      *
      * @return string
      *
-     * @throws SuspiciousOperationException when the host name is invalid or not trusted
+     * @throws \UnexpectedValueException when the host name is invalid
      */
     public function getHost()
     {
@@ -1275,12 +1194,7 @@ class Request
         // check that it does not contain forbidden characters (see RFC 952 and RFC 2181)
         // use preg_replace() instead of preg_match() to prevent DoS attacks with long host names
         if ($host && '' !== preg_replace('/(?:^\[)?[a-zA-Z0-9-:\]_]+\.?/', '', $host)) {
-            if (!$this->isHostValid) {
-                return '';
-            }
-            $this->isHostValid = false;
-
-            throw new SuspiciousOperationException(sprintf('Invalid Host "%s".', $host));
+            throw new \UnexpectedValueException(sprintf('Invalid Host "%s"', $host));
         }
 
         if (count(self::$trustedHostPatterns) > 0) {
@@ -1298,12 +1212,7 @@ class Request
                 }
             }
 
-            if (!$this->isHostValid) {
-                return '';
-            }
-            $this->isHostValid = false;
-
-            throw new SuspiciousOperationException(sprintf('Untrusted Host "%s".', $host));
+            throw new \UnexpectedValueException(sprintf('Untrusted Host "%s"', $host));
         }
 
         return $host;
@@ -1865,6 +1774,9 @@ class Request
 
         // Does the baseUrl have anything in common with the request_uri?
         $requestUri = $this->getRequestUri();
+        if ($requestUri !== '' && $requestUri[0] !== '/') {
+            $requestUri = '/'.$requestUri;
+        }
 
         if ($baseUrl && false !== $prefix = $this->getUrlencodedPrefix($requestUri, $baseUrl)) {
             // full $baseUrl matches
@@ -1937,8 +1849,11 @@ class Request
         }
 
         // Remove the query string from REQUEST_URI
-        if ($pos = strpos($requestUri, '?')) {
+        if (false !== $pos = strpos($requestUri, '?')) {
             $requestUri = substr($requestUri, 0, $pos);
+        }
+        if ($requestUri !== '' && $requestUri[0] !== '/') {
+            $requestUri = '/'.$requestUri;
         }
 
         $pathInfo = substr($requestUri, strlen($baseUrl));

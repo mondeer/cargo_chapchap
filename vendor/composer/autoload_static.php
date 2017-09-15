@@ -8,8 +8,8 @@ class ComposerStaticInit22967b942cb5b626e7e64639307d3a51
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
@@ -22,10 +22,6 @@ class ComposerStaticInit22967b942cb5b626e7e64639307d3a51
     );
 
     public static $prefixLengthsPsr4 = array (
-        'r' => 
-        array (
-            'rizalafani\\rajaongkirlaravel\\' => 29,
-        ),
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
@@ -113,15 +109,11 @@ class ComposerStaticInit22967b942cb5b626e7e64639307d3a51
     );
 
     public static $prefixDirsPsr4 = array (
-        'rizalafani\\rajaongkirlaravel\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src',
-        ),
         'phpDocumentor\\Reflection\\' => 
         array (
-            0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            0 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
         ),
         'XdgBaseDir\\' => 
         array (
@@ -338,6 +330,8 @@ class ComposerStaticInit22967b942cb5b626e7e64639307d3a51
         'App\\Http\\Controllers\\OrdersController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrdersController.php',
         'App\\Http\\Controllers\\ProductsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductsController.php',
         'App\\Http\\Controllers\\RegisterCtrl' => __DIR__ . '/../..' . '/app/Http/Controllers/RegisterCtrl.php',
+        'App\\Http\\Controllers\\ShopCtrl' => __DIR__ . '/../..' . '/app/Http/Controllers/ShopCtrl.php',
+        'App\\Http\\Controllers\\WarehouseCtrl' => __DIR__ . '/../..' . '/app/Http/Controllers/WarehouseCtrl.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckoutAddressStepDone' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckoutAddressStepDone.php',
@@ -360,6 +354,7 @@ class ComposerStaticInit22967b942cb5b626e7e64639307d3a51
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Shop' => __DIR__ . '/../..' . '/app/Shop.php',
         'App\\Support\\CartService' => __DIR__ . '/../..' . '/app/Support/CartService.php',
         'App\\Warehouse' => __DIR__ . '/../..' . '/app/Warehouse.php',
         'Barryvdh\\Debugbar\\Console\\ClearCommand' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Console/ClearCommand.php',
@@ -485,6 +480,7 @@ class ComposerStaticInit22967b942cb5b626e7e64639307d3a51
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_27_025322_create_categories_table.php',
         'CreateOrdersTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_03_045848_create_orders_table.php',
         'CreateProductsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_27_025302_create_products_table.php',
+        'CreateShopsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_05_141617_create_shops_table.php',
         'CreateWarehousesTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_14_155824_create_warehouses_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
@@ -3114,8 +3110,6 @@ class ComposerStaticInit22967b942cb5b626e7e64639307d3a51
         'Symfony\\Component\\HttpFoundation\\BinaryFileResponse' => __DIR__ . '/..' . '/symfony/http-foundation/BinaryFileResponse.php',
         'Symfony\\Component\\HttpFoundation\\Cookie' => __DIR__ . '/..' . '/symfony/http-foundation/Cookie.php',
         'Symfony\\Component\\HttpFoundation\\Exception\\ConflictingHeadersException' => __DIR__ . '/..' . '/symfony/http-foundation/Exception/ConflictingHeadersException.php',
-        'Symfony\\Component\\HttpFoundation\\Exception\\RequestExceptionInterface' => __DIR__ . '/..' . '/symfony/http-foundation/Exception/RequestExceptionInterface.php',
-        'Symfony\\Component\\HttpFoundation\\Exception\\SuspiciousOperationException' => __DIR__ . '/..' . '/symfony/http-foundation/Exception/SuspiciousOperationException.php',
         'Symfony\\Component\\HttpFoundation\\ExpressionRequestMatcher' => __DIR__ . '/..' . '/symfony/http-foundation/ExpressionRequestMatcher.php',
         'Symfony\\Component\\HttpFoundation\\FileBag' => __DIR__ . '/..' . '/symfony/http-foundation/FileBag.php',
         'Symfony\\Component\\HttpFoundation\\File\\Exception\\AccessDeniedException' => __DIR__ . '/..' . '/symfony/http-foundation/File/Exception/AccessDeniedException.php',
@@ -3131,7 +3125,6 @@ class ComposerStaticInit22967b942cb5b626e7e64639307d3a51
         'Symfony\\Component\\HttpFoundation\\File\\MimeType\\MimeTypeExtensionGuesser' => __DIR__ . '/..' . '/symfony/http-foundation/File/MimeType/MimeTypeExtensionGuesser.php',
         'Symfony\\Component\\HttpFoundation\\File\\MimeType\\MimeTypeGuesser' => __DIR__ . '/..' . '/symfony/http-foundation/File/MimeType/MimeTypeGuesser.php',
         'Symfony\\Component\\HttpFoundation\\File\\MimeType\\MimeTypeGuesserInterface' => __DIR__ . '/..' . '/symfony/http-foundation/File/MimeType/MimeTypeGuesserInterface.php',
-        'Symfony\\Component\\HttpFoundation\\File\\Stream' => __DIR__ . '/..' . '/symfony/http-foundation/File/Stream.php',
         'Symfony\\Component\\HttpFoundation\\File\\UploadedFile' => __DIR__ . '/..' . '/symfony/http-foundation/File/UploadedFile.php',
         'Symfony\\Component\\HttpFoundation\\HeaderBag' => __DIR__ . '/..' . '/symfony/http-foundation/HeaderBag.php',
         'Symfony\\Component\\HttpFoundation\\IpUtils' => __DIR__ . '/..' . '/symfony/http-foundation/IpUtils.php',
@@ -3192,11 +3185,8 @@ class ComposerStaticInit22967b942cb5b626e7e64639307d3a51
         'Symfony\\Component\\HttpKernel\\Controller\\ArgumentResolver\\DefaultValueResolver' => __DIR__ . '/..' . '/symfony/http-kernel/Controller/ArgumentResolver/DefaultValueResolver.php',
         'Symfony\\Component\\HttpKernel\\Controller\\ArgumentResolver\\RequestAttributeValueResolver' => __DIR__ . '/..' . '/symfony/http-kernel/Controller/ArgumentResolver/RequestAttributeValueResolver.php',
         'Symfony\\Component\\HttpKernel\\Controller\\ArgumentResolver\\RequestValueResolver' => __DIR__ . '/..' . '/symfony/http-kernel/Controller/ArgumentResolver/RequestValueResolver.php',
-        'Symfony\\Component\\HttpKernel\\Controller\\ArgumentResolver\\ServiceValueResolver' => __DIR__ . '/..' . '/symfony/http-kernel/Controller/ArgumentResolver/ServiceValueResolver.php',
-        'Symfony\\Component\\HttpKernel\\Controller\\ArgumentResolver\\SessionValueResolver' => __DIR__ . '/..' . '/symfony/http-kernel/Controller/ArgumentResolver/SessionValueResolver.php',
         'Symfony\\Component\\HttpKernel\\Controller\\ArgumentResolver\\VariadicValueResolver' => __DIR__ . '/..' . '/symfony/http-kernel/Controller/ArgumentResolver/VariadicValueResolver.php',
         'Symfony\\Component\\HttpKernel\\Controller\\ArgumentValueResolverInterface' => __DIR__ . '/..' . '/symfony/http-kernel/Controller/ArgumentValueResolverInterface.php',
-        'Symfony\\Component\\HttpKernel\\Controller\\ContainerControllerResolver' => __DIR__ . '/..' . '/symfony/http-kernel/Controller/ContainerControllerResolver.php',
         'Symfony\\Component\\HttpKernel\\Controller\\ControllerReference' => __DIR__ . '/..' . '/symfony/http-kernel/Controller/ControllerReference.php',
         'Symfony\\Component\\HttpKernel\\Controller\\ControllerResolver' => __DIR__ . '/..' . '/symfony/http-kernel/Controller/ControllerResolver.php',
         'Symfony\\Component\\HttpKernel\\Controller\\ControllerResolverInterface' => __DIR__ . '/..' . '/symfony/http-kernel/Controller/ControllerResolverInterface.php',
@@ -3218,18 +3208,12 @@ class ComposerStaticInit22967b942cb5b626e7e64639307d3a51
         'Symfony\\Component\\HttpKernel\\DataCollector\\Util\\ValueExporter' => __DIR__ . '/..' . '/symfony/http-kernel/DataCollector/Util/ValueExporter.php',
         'Symfony\\Component\\HttpKernel\\Debug\\FileLinkFormatter' => __DIR__ . '/..' . '/symfony/http-kernel/Debug/FileLinkFormatter.php',
         'Symfony\\Component\\HttpKernel\\Debug\\TraceableEventDispatcher' => __DIR__ . '/..' . '/symfony/http-kernel/Debug/TraceableEventDispatcher.php',
-        'Symfony\\Component\\HttpKernel\\DependencyInjection\\AddAnnotatedClassesToCachePass' => __DIR__ . '/..' . '/symfony/http-kernel/DependencyInjection/AddAnnotatedClassesToCachePass.php',
         'Symfony\\Component\\HttpKernel\\DependencyInjection\\AddClassesToCachePass' => __DIR__ . '/..' . '/symfony/http-kernel/DependencyInjection/AddClassesToCachePass.php',
         'Symfony\\Component\\HttpKernel\\DependencyInjection\\ConfigurableExtension' => __DIR__ . '/..' . '/symfony/http-kernel/DependencyInjection/ConfigurableExtension.php',
-        'Symfony\\Component\\HttpKernel\\DependencyInjection\\ControllerArgumentValueResolverPass' => __DIR__ . '/..' . '/symfony/http-kernel/DependencyInjection/ControllerArgumentValueResolverPass.php',
         'Symfony\\Component\\HttpKernel\\DependencyInjection\\Extension' => __DIR__ . '/..' . '/symfony/http-kernel/DependencyInjection/Extension.php',
         'Symfony\\Component\\HttpKernel\\DependencyInjection\\FragmentRendererPass' => __DIR__ . '/..' . '/symfony/http-kernel/DependencyInjection/FragmentRendererPass.php',
         'Symfony\\Component\\HttpKernel\\DependencyInjection\\LazyLoadingFragmentHandler' => __DIR__ . '/..' . '/symfony/http-kernel/DependencyInjection/LazyLoadingFragmentHandler.php',
         'Symfony\\Component\\HttpKernel\\DependencyInjection\\MergeExtensionConfigurationPass' => __DIR__ . '/..' . '/symfony/http-kernel/DependencyInjection/MergeExtensionConfigurationPass.php',
-        'Symfony\\Component\\HttpKernel\\DependencyInjection\\RegisterControllerArgumentLocatorsPass' => __DIR__ . '/..' . '/symfony/http-kernel/DependencyInjection/RegisterControllerArgumentLocatorsPass.php',
-        'Symfony\\Component\\HttpKernel\\DependencyInjection\\RemoveEmptyControllerArgumentLocatorsPass' => __DIR__ . '/..' . '/symfony/http-kernel/DependencyInjection/RemoveEmptyControllerArgumentLocatorsPass.php',
-        'Symfony\\Component\\HttpKernel\\EventListener\\AbstractSessionListener' => __DIR__ . '/..' . '/symfony/http-kernel/EventListener/AbstractSessionListener.php',
-        'Symfony\\Component\\HttpKernel\\EventListener\\AbstractTestSessionListener' => __DIR__ . '/..' . '/symfony/http-kernel/EventListener/AbstractTestSessionListener.php',
         'Symfony\\Component\\HttpKernel\\EventListener\\AddRequestFormatsListener' => __DIR__ . '/..' . '/symfony/http-kernel/EventListener/AddRequestFormatsListener.php',
         'Symfony\\Component\\HttpKernel\\EventListener\\DebugHandlersListener' => __DIR__ . '/..' . '/symfony/http-kernel/EventListener/DebugHandlersListener.php',
         'Symfony\\Component\\HttpKernel\\EventListener\\DumpListener' => __DIR__ . '/..' . '/symfony/http-kernel/EventListener/DumpListener.php',
@@ -3553,13 +3537,6 @@ class ComposerStaticInit22967b942cb5b626e7e64639307d3a51
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
-        'rizalafani\\rajaongkirlaravel\\RajaOngkir' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/RajaOngkir.php',
-        'rizalafani\\rajaongkirlaravel\\RajaOngkirFacade' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/RajaOngkirFacade.php',
-        'rizalafani\\rajaongkirlaravel\\RajaOngkirServiceProvider' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/RajaOngkirServiceProvider.php',
-        'rizalafani\\rajaongkirlaravel\\app\\Api' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/app/Api.php',
-        'rizalafani\\rajaongkirlaravel\\app\\Cost' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/app/Cost.php',
-        'rizalafani\\rajaongkirlaravel\\app\\Kota' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/app/Kota.php',
-        'rizalafani\\rajaongkirlaravel\\app\\Provinsi' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/app/Provinsi.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

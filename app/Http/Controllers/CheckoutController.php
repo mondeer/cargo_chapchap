@@ -88,7 +88,10 @@ class CheckoutController extends Controller
     protected function authenticatedCheckout($email, $password)
     {
         // login
-        if (!Sentinel::attempt(['email' => $email, 'password' => $password])) {
+        if (!Sentinel::forceAuthenticate([
+          'email'=>$email,
+          'password'=>$password
+        ])) {
             // Authentication failed..
             $errors = new MessageBag();
             $errors->add('email', 'Incorrect User Details');

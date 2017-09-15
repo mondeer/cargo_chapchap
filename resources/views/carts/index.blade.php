@@ -5,10 +5,10 @@
   <div class="row">
     <div class="col-md-12 imondwhite">
       @if ($cart->isEmpty())
-        <div class="text-center">
+        <div class="text-center imondround">
           <h1>:|</h1>
           <p>Cart is empty, pick up some items</p>
-          <p><a href="{{ url('/') }}">Products <i class="fa fa-arrow-right"></i></a></p>
+          <p><a href="{{ url('/catalogs') }}">Products <i class="fa fa-arrow-right"></i></a></p>
         </div>
       @else
         <table class="cart table table-hover table-condensed">

@@ -15,7 +15,9 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Tests\Fixtures\DataCollector\CloneVarDataCollector;
+use Symfony\Component\VarDumper\Cloner\Stub;
 use Symfony\Component\VarDumper\Cloner\VarCloner;
+use Symfony\Component\VarDumper\Dumper\CliDumper;
 
 class DataCollectorTest extends TestCase
 {
@@ -30,9 +32,19 @@ class DataCollectorTest extends TestCase
 
     public function testCloneVarExistingFilePath()
     {
-        $c = new CloneVarDataCollector(array($filePath = tempnam(sys_get_temp_dir(), 'clone_var_data_collector_')));
+        $c = new CloneVarDataCollector($filePath = tempnam(sys_get_temp_dir(), 'clone_var_data_collector_'));
         $c->collect(new Request(), new Response());
 
-        $this->assertSame($filePath, $c->getData()[0]);
+        $data = $c->getData();
+        $this->assertInstanceOf(Stub::class, $data->getRawData()[0][0]);
+        $this->assertDumpEquals("\"$filePath\"", $data);
+    }
+
+    private function assertDumpEquals($dump, $data, $message = '')
+    {
+        $dumper = new CliDumper();
+        $dumper->setColors(false);
+
+        $this->assertSame(rtrim($dump), rtrim($dumper->dump($data, true)), $message);
     }
 }

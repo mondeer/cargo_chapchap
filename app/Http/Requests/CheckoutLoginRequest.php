@@ -11,7 +11,7 @@ class CheckoutLoginRequest extends FormRequest
     {
         return true;
     }
-s
+
      public function rules()
      {
          return [

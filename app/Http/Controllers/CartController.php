@@ -7,7 +7,6 @@ use App\Product;
 use Session;
 use App\Support\CartService;
 use Flash;
-use Auth;
 use App\Cart;
 use Sentinel;
 
