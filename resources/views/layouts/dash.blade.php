@@ -27,6 +27,8 @@
   <link rel="stylesheet" href="{{ asset ('dash/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ asset ('dash/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+  <link rel="stylesheet" href="{{ url('assets/css/app.css') }}">
+  <link rel="stylesheet" href="{{ url('assets/css/libs.css') }}">
 
 </head>
 <body class="hold-transition skin-red sidebar-mini">
@@ -212,6 +214,10 @@
     <!-- DataTables -->
     <script src="{{ asset ('dash/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{ asset ('dash/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+    <!-- <script src="{{ url ('assets/js/app.js') }}"></script> -->
+    <script src="{{ url ('assets/js/all.js') }}"></script>
+    <script src="{{ url ('assets/js/libs.js') }}"></script>
+    <script src="{{ url ('assets/js/custom.js') }}"></script>
 
     </body>
 </html>
