@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="keywords" content="ChapChap Cargo is an online cargo management system where users are able to ship stuff from abroad with ease">
   <meta charset="utf-8">
-  <title>ChapChap || Cargo</title>
+  <title>CHapChap || Cargo</title>
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="{{ asset ('dash/bootstrap/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ asset ('dash/ionicons/css/ionicons.min.css')}}">
@@ -27,10 +27,6 @@
   <link rel="stylesheet" href="{{ asset ('dash/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ asset ('dash/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
-  <!-- Styles -->
-  <link rel="stylesheet" href="{{ mix('assets/css/app.css') }}">
-  <link rel="stylesheet" href="{{ mix('assets/css/libs.css') }}">
-
 
 </head>
 <body class="hold-transition skin-red sidebar-mini">
@@ -40,7 +36,7 @@
     <!-- Logo -->
     <a href="/system/admin" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini">CC<b>C</b></span>
+      <span class="logo-mini"><b>CHAP</b></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>ChapChap</b>Cargo</span>
     </a>
@@ -131,8 +127,6 @@
           </ul>
         </li>
 
-
-
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -165,7 +159,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2017 <a href="imond.co.ke">ChapChap Cargo</a>.</strong> All rights
+    <strong>Copyright &copy; 2017 <a href="http://imond.co.ke">ChapChap Cargo</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -215,10 +209,6 @@
     <script src="{{ asset ('dash/dist/js/pages/dashboard.js')}}"></script>
     <!-- iMond for demo purposes -->
     <script src="{{ asset ('dash/dist/js/demo.js')}}"></script>
-    <script src="{{ mix('assets/js/app.js') }}"></script>
-    <script src="{{ mix('assets/js/all.js') }}"></script>
-    <script src="{{ mix('assets/js/libs.js') }}"></script>
-    <script src="{{ mix('assets/js/custom.js') }}"></script>
     <!-- DataTables -->
     <script src="{{ asset ('dash/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{ asset ('dash/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>

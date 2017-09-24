@@ -100,6 +100,43 @@
             <li><a href="/home/orders"><i class="fa fa-circle-o"></i> Add Package</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-graduation-cap"></i> <span>Manage Orders</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/orders"><i class="fa fa-circle-o"></i>View Orders</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-sitemap"></i> <span> Manage Categories</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('categories.index') }}"><i class="fa fa-btn fa-tags"></i>View Categories</a></li>
+            <li><a href="{{ route('categories.create') }}"><i class="fa fa-btn fa-shopping-cart"></i>Add Category</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-sitemap"></i> <span> Manage Products</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('products.index') }}"><i class="fa fa-btn fa-gift"></i>View Products</a></li>
+            <li><a href="{{ route('products.create') }}"><i class="fa fa-btn fa-gift"></i>Add Products</a></li>
+          </ul>
+        </li>
 
       </ul>
     </section>
@@ -133,7 +170,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2017 <a href="imond.co.ke">ChapChap Cargo</a>.</strong> All rights
+    <strong>Copyright &copy; 2017 <a href="http://imond.co.ke">ChapChap Cargo</a>.</strong> All rights
     reserved.
   </footer>
 
