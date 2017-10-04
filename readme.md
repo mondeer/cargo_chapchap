@@ -22,10 +22,12 @@ An online shop for kenyans and east africans
 * go to phpmyadmin and insert roles to roles table
     -> first role is admin( slug: admin, name: Admin)
     -> second role is customer( slug: customer, name: Customer)
-    nb:/ name in role is NOT the name of the user, its the name of the role, the role can be identified by name or slug
+    NB:/ name in role is NOT the name of the user, its the name of the role, the role can be identified by name or slug
 * register user, and select role
 
-## the app
-    This 
+## THE APP
+    This is an app that enables shoppers who wish to buy from big online stores i.e. eBay Amazon and what have you. 
+what happens is that they either provide the product link or shop for what the company has on their stores.
+![alt text](https://raw.githubusercontent.com/mondeer/firetruckmall/master/public/img/bg.jpg)
 ## DEVELOPER
 iMond Solutions
