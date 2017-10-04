@@ -28,6 +28,6 @@ An online shop for kenyans and east africans
 ## THE APP
     This is an app that enables shoppers who wish to buy from big online stores i.e. eBay Amazon and what have you. 
 what happens is that they either provide the product link or shop for what the company has on their stores.
-![alt text](https://raw.githubusercontent.com/mondeer/firetruckmall/master/public/img/bg.jpg)
+![alt text](https://raw.github.com/mondeer/firetruckmall/master/public/img/bg.jpg)
 ## DEVELOPER
 iMond Solutions
