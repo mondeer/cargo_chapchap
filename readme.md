@@ -18,8 +18,14 @@ An online shop for kenyans and east africans
 * run composer update
 * create your database pale phpmyadmin(Mysql)
 * run php artisan serve
-* php artisan db::seed
-*
+* php artisan key:generate
+* go to phpmyadmin and insert roles to roles table
+    -> first role is admin( slug: admin, name: Admin)
+    -> second role is customer( slug: customer, name: Customer)
+    nb:/ name in role is NOT the name of the user, its the name of the role, the role can be identified by name or slug
+* register user, and select role
 
+## the app
+    This 
 ## DEVELOPER
 iMond Solutions

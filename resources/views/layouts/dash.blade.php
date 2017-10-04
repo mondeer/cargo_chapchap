@@ -1,3 +1,4 @@
+<!-- Dashboard for the administrator -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +28,8 @@
   <link rel="stylesheet" href="{{ asset ('dash/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ asset ('dash/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
-  <link rel="stylesheet" href="{{ url('assets/css/app.css') }}">
-  <link rel="stylesheet" href="{{ url('assets/css/libs.css') }}">
+  <link rel="stylesheet" href="{{ mix('assets/css/app.css') }}">
+  <link rel="stylesheet" href="{{ mix('assets/css/libs.css') }}">
 
 </head>
 <body class="hold-transition skin-red sidebar-mini">
@@ -72,6 +73,7 @@
           <img src="{{ asset ('img/avatar4.png')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
+        <!-- fetch first name of logged user -->
           <p>{{ Sentinel::getUser()->first_name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -87,7 +89,7 @@
         </div>
       </form>
       <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <!-- sidebar menu: : menus with dropdowns  -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
 
@@ -157,7 +159,7 @@
       </ol>
     </section>
 
-    <!-- Main content -->
+    <!-- Main content  we yield content from blades with section 'content'-->
     <section class="content">
       <div class="row">
         @yield('content')
@@ -223,10 +225,12 @@
     <!-- DataTables -->
     <script src="{{ asset ('dash/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{ asset ('dash/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
-    <!-- <script src="{{ url ('assets/js/app.js') }}"></script> -->
-    <script src="{{ url ('assets/js/all.js') }}"></script>
-    <script src="{{ url ('assets/js/libs.js') }}"></script>
-    <script src="{{ url ('assets/js/custom.js') }}"></script>
+    <!-- Scripts -->
+    <script src="{{ mix('assets/js/app.js') }}"></script>
+    <script src="{{ mix('assets/js/all.js') }}"></script>
+    <script src="{{ mix('assets/js/libs.js') }}"></script>
+    <script src="{{ mix('assets/js/custom.js') }}"></script>
+
 
     </body>
 </html>
