@@ -61,3 +61,5 @@ Route::resource('orders', 'OrdersController', ['only' => [
 ]]);
 
 Route::get('/home/orders', 'HomeController@viewOrders');
+
+Route::resource('another', 'AnotherCtrl');

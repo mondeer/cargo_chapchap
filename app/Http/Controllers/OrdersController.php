@@ -28,6 +28,7 @@ class OrdersController extends Controller
             ->paginate(10);
 
         return view('orders.index', compact('orders', 'status', 'q'));
+        // return json_encode($orders);
     }
 
     public function create()

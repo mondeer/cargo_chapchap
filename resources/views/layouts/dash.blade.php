@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="keywords" content="ChapChap Cargo is an online cargo management system where users are able to ship stuff from abroad with ease">
   <meta charset="utf-8">
-  <title>CHapChap || Cargo</title>
+  <title>ChapChap || Cargo</title>
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="{{ asset ('dash/bootstrap/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ asset ('dash/ionicons/css/ionicons.min.css')}}">
@@ -126,6 +126,15 @@
           <ul class="treeview-menu">
             <li><a href="{{ route('products.index') }}"><i class="fa fa-btn fa-gift"></i>View Products</a></li>
             <li><a href="{{ route('products.create') }}"><i class="fa fa-btn fa-gift"></i>Add Products</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="">
+            Employees
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/create/employee">New Employee</a></li>
+            <li><a href="/view/employees">View Employees</a></li>
           </ul>
         </li>
 
