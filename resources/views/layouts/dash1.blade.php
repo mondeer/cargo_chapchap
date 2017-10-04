@@ -1,3 +1,4 @@
+<!-- This dashboard is for the client, they can view details of their shipment, and costs they did incur -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="keywords" content="ChapChap Cargo is an online cargo management system where users are able to ship stuff from abroad with ease">
   <meta charset="utf-8">
-  <title>CHapChap || Cargo</title>
+  <title>ChapChap || Cargo</title>
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="{{ asset ('dash/bootstrap/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ asset ('dash/ionicons/css/ionicons.min.css')}}">
@@ -46,7 +47,7 @@
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-
+<!-- logout button -->
       <div class="navbar-custom-menu">
         <a class="btn btn-lg btn-danger" href="{{ url('/logout') }}"
             onclick="event.preventDefault();
@@ -70,11 +71,12 @@
           <img src="{{ asset ('img/avatar4.png')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
+        <!-- sentinel code to fetch loggen in user -->
           <p>{{ Sentinel::getUser()->first_name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
+      <!-- search form >>>>>to be implemented-->
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
@@ -85,7 +87,7 @@
         </div>
       </form>
       <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <!-- sidebar menu: : unordered list populating menus with dropdown-->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
 
@@ -97,47 +99,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/home/orders"><i class="fa fa-circle-o"></i> Add Package</a></li>
+            <li><a href="/home/orders"><i class="fa fa-circle-o"></i>View My Orders</a></li>
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-graduation-cap"></i> <span>Manage Orders</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/orders"><i class="fa fa-circle-o"></i>View Orders</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-sitemap"></i> <span> Manage Categories</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('categories.index') }}"><i class="fa fa-btn fa-tags"></i>View Categories</a></li>
-            <li><a href="{{ route('categories.create') }}"><i class="fa fa-btn fa-shopping-cart"></i>Add Category</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-sitemap"></i> <span> Manage Products</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('products.index') }}"><i class="fa fa-btn fa-gift"></i>View Products</a></li>
-            <li><a href="{{ route('products.create') }}"><i class="fa fa-btn fa-gift"></i>Add Products</a></li>
-          </ul>
-        </li>
-
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -160,6 +124,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
+      <!-- we yield pages with section 'content' -->
         @yield('content')
       </div>
     </section>
