@@ -1,5 +1,5 @@
 # ChapChap Cargo {Laravel 5.4}
-
+![logo](https://user-images.githubusercontent.com/18287294/31178228-0ae98500-a921-11e7-8ce6-a0768e5fa1ad.jpeg)
 An online shop for kenyans and east africans
 
 ## Built With
@@ -29,6 +29,7 @@ An online shop for kenyans and east africans
     This is an app that enables shoppers who wish to buy from big online 
     stores i.e. eBay Amazon and what have you. 
 what happens is that they either provide the product link or shop for what the company has on their stores.
+
 ![screenshot from 2017-10-04 16-32-14](https://user-images.githubusercontent.com/18287294/31178426-b8cdc730-a921-11e7-828f-de7262abd183.png)
 ## DEVELOPER
 iMond Solutions
