@@ -28,12 +28,12 @@ Route::get('/warehouses/view', 'WarehouseCtrl@vieWarehouses');
 Route::delete('/warehouse/{id}/delete', 'WarehouseCtrl@delete');
 
 // View Shoppings
-Route::get('/shoppings/system/view', 'ShopCtrl@adminView');
+Route::get('/product/links/view', 'ProductlinkCtrl@adminView');
 
 // client routes
-Route::get('/shop/online', 'ShopCtrl@index');
+Route::get('/product/link', 'ProductlinkCtrl@index');
 
-Route::post('/shop/online', 'ShopCtrl@shop');
+Route::post('/product/link', 'ProductlinkCtrl@shop');
 
 /*=================================================================*/
 

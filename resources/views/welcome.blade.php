@@ -55,7 +55,7 @@
                                             <ul class="nav navbar-nav navbar-right">
                                                 <li><a href="#home">HOME</a></li>
                                                 <li><a href="#history">ABOUT US</a></li>
-                                                <li><a href="/shop/online">SUBMIT LINK</a></li>
+                                                <li><a href="/product/link">SUBMIT LINK</a></li>
                                                 <li><a href="#contact">CONTACT</a></li>
                                                 <li><a class="imondround" href="/catalogs">OFFERS</a></li>
                                                 <li><a class="imondround" href="/login">LOGIN</a></li>

@@ -46,11 +46,8 @@
                                   <ul class="nav navbar-nav navbar-right">
                                       <li><a class="imondwhite" href="/">HOME</a></li>
                                       <li><a class="imondwhite" href="#history">ABOUT US</a></li>
-                                      <li><a class="imondwhite" href="#portfolio">PORTFOLIO</a></li>
-                                      <li><a class="imondwhite" href="#pricing">PRICING</a></li>
-                                      <li><a class="imondwhite" href="#team">TEAM</a></li>
-                                      <li><a class="imondwhite" href="#blog">BLOG</a></li>
-                                      <li><a class="imondwhite" href="#contact">CONTACT</a></li>
+                                      <li><a class="imondwhite" href="/catalogs">Catalogs</a></li>
+                                      <li><a class="imondwhite" href="#contact">LOGIN</a></li>
                                   </ul>
 
 
@@ -76,7 +73,7 @@
 
             <div class="row">
                 <div class="col-md-offset-1 col-md-9">
-                    <form class="imond" method="post" role="form" action="/shop/online">
+                    <form class="imond" method="post" role="form" action="/product/link">
                       {{ csrf_field() }}
 
                           <div class="form-group imond">
