@@ -670,7 +670,7 @@ input::-ms-input-placeholder {
 }
 /*home section*/
 .home{
-    background: url(../jet.gif) no-repeat center center;
+    background: url(../chapo.png) no-repeat center center;
     background-size: cover;
 }
 .home_skew_border{
