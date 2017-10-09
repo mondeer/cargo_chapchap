@@ -62,5 +62,7 @@ class Kernel extends HttpKernel
         'checkout.login-step-done' => \App\Http\Middleware\CheckoutLoginStepDone::class,
         'checkout.address-step-done' => \App\Http\Middleware\CheckoutAddressStepDone::class,
         'checkout.payment-step-done' => \App\Http\Middleware\CheckoutPaymentStepDone::class,
+        'admin' =>\App\Http\Middleware\AdminMiddleware::class,
+        'customer' =>\App\Http\Middleware\CustomerMiddleware::class,
     ];
 }

@@ -18,19 +18,7 @@ Route::post('/logout', 'LoginCtrl@logout');
 
 /*========================================================*/
 
-// warehouse routes
-Route::get('/warehouse/add', 'WarehouseCtrl@add');
-
-Route::post('/warehouse/add', 'WarehouseCtrl@postAdd');
-
-Route::get('/warehouses/view', 'WarehouseCtrl@vieWarehouses');
-
-Route::delete('/warehouse/{id}/delete', 'WarehouseCtrl@delete');
-
-// View Shoppings
-Route::get('/product/links/view', 'ProductlinkCtrl@adminView');
-
-// client routes
+// client routes before login
 Route::get('/product/link', 'ProductlinkCtrl@index');
 
 Route::post('/product/link', 'ProductlinkCtrl@shop');
@@ -38,8 +26,7 @@ Route::post('/product/link', 'ProductlinkCtrl@shop');
 /*=================================================================*/
 
 Route::get('/home', 'HomeController@index');
-Route::resource('categories', 'CategoriesController');
-Route::resource('products', 'ProductsController');
+
 Route::get('/catalogs', 'CatalogsController@index');
 Route::post('cart', 'CartController@addProduct');
 Route::get('cart', 'CartController@show');
@@ -56,8 +43,28 @@ Route::post('checkout/payment', 'CheckoutController@postPayment');
 
 Route::get('/success', 'CheckoutController@success');
 
-Route::resource('orders', 'OrdersController', ['only' => [
-    'index', 'edit', 'update'
-]]);
+Route::group(['middleware' => 'admin'], function(){
+  Route::resource('orders', 'OrdersController', ['only' => [
+      'index', 'edit', 'update'
+  ]]);
 
-Route::get('/home/orders', 'HomeController@viewOrders');
+    // warehouse routes
+  Route::get('/warehouse/add', 'WarehouseCtrl@add');
+
+  Route::post('/warehouse/add', 'WarehouseCtrl@postAdd');
+
+  Route::get('/warehouses/view', 'WarehouseCtrl@vieWarehouses');
+
+  Route::delete('/warehouse/{id}/delete', 'WarehouseCtrl@delete');
+
+  // View Shoppings
+  Route::get('/product/links/view', 'ProductlinkCtrl@adminView');
+
+  Route::resource('categories', 'CategoriesController');
+
+  Route::resource('products', 'ProductsController');
+});
+
+Route::group(['middleware' => 'customer'], function(){
+  Route::get('/home/orders', 'HomeController@viewOrders');
+});
